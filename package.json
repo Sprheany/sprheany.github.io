@@ -1,0 +1,45 @@
+{
+  "name": "sprheany-blog",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
+  },
+  "hexo": {
+    "version": "6.3.0"
+  },
+  "dependencies": {
+    "hexo": "^6.3.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^3.0.0",
+    "hexo-generator-sitemap": "^3.0.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^6.0.0",
+    "hexo-renderer-stylus": "^3.0.0",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-landscape": "^1.0.0"
+  },
+  "description": "Sprheany's blog.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Sprheany/sprheany.github.io.git"
+  },
+  "keywords": [
+    "sprheany",
+    "android",
+    "flutter",
+    "developer"
+  ],
+  "author": "Sprheany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sprheany/sprheany.github.io/issues"
+  },
+  "homepage": "https://github.com/Sprheany/sprheany.github.io#readme"
+}
