@@ -361,11 +361,11 @@ back2top:
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
-  enable: false
+  enable: true
   # Available values: top | bottom
   position: top
   color: "#37c6c0"
@@ -454,7 +454,7 @@ exturl: false
 
 # Google Webmaster tools verification.
 # See: https://www.google.com/webmasters
-google_site_verification:
+google_site_verification: TYI8t0w4qNc2bO3NAXvIXcHAgqOjeTSCgYitJZlaqsI
 
 # Bing Webmaster tools verification.
 # See: https://www.bing.com/webmaster
