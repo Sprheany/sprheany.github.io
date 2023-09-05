@@ -95,3 +95,7 @@ class ApiDns : Dns {
     }
 }
 ```
+
+## 参考链接
+
+- [First request takes as long as the connectTimeout](https://github.com/square/okhttp/issues/6486)
