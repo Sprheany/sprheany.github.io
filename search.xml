@@ -31,6 +31,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Nine Patch Generator</title>
+    <url>/2023/08/25/Nine-Patch-Generator/</url>
+    <content><![CDATA[<p>The Nine Patch Generator is an online WYSIWYG tool similar to the one included in Android Studio. The tool lets you create bitmap images that automatically resize to accommodate the contents of the view and the size of the screen. You can scale selected parts of the image horizontally or vertically based on indicators drawn within the image.</p>
+<p>Link: <a href="https://www.9patch.online/">https://www.9patch.online</a></p>
+]]></content>
+      <categories>
+        <category>Flutter</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/08/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -52,21 +67,6 @@
       </categories>
       <tags>
         <tag>Other</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nine Patch Generator</title>
-    <url>/2023/08/25/Nine-Patch-Generator/</url>
-    <content><![CDATA[<p>The Nine Patch Generator is an online WYSIWYG tool similar to the one included in Android Studio. The tool lets you create bitmap images that automatically resize to accommodate the contents of the view and the size of the screen. You can scale selected parts of the image horizontally or vertically based on indicators drawn within the image.</p>
-<p>Link: <a href="https://www.9patch.online/">https://www.9patch.online</a></p>
-]]></content>
-      <categories>
-        <category>Flutter</category>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-        <tag>Flutter</tag>
       </tags>
   </entry>
 </search>
