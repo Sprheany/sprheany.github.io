@@ -72,7 +72,7 @@ fundgz.1234567.com.cn/221.178.98.186
 
 ## 解决问题
 
-我们修改 Dns 的实现为下面的代码，将 IPv4 地址移到前面，最后测试问题解决。
+我们修改 Dns 的实现为下面的代码，优先解析 IPv4 地址，最后测试问题解决。
 
 ```kotlin
 val client = OkHttpClient.Builder()
@@ -83,16 +83,10 @@ class ApiDns : Dns {
     @Throws(UnknownHostException::class)
     override fun lookup(hostname: String): List<InetAddress> {
         try {
-            val mInetAddressesList: MutableList<InetAddress> = ArrayList()
-            val mInetAddresses = InetAddress.getAllByName(hostname)
-            for (address in mInetAddresses) {
-                if (address is Inet4Address) {
-                    mInetAddressesList.add(0, address)
-                } else {
-                    mInetAddressesList.add(address)
-                }
+            // IPv4 first
+            return InetAddress.getAllByName(hostname).sortedBy {
+                Inet6Address::class.java.isInstance(it)
             }
-            return mInetAddressesList
         } catch (e: NullPointerException) {
             throw UnknownHostException("Broken system behaviour for dns lookup of $hostname").apply {
                 initCause(e)
