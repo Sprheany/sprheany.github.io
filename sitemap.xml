@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://sprheany.github.io/2023/08/25/hello-world/</loc>
+    
+    <lastmod>2023-09-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sprheany.github.io/2023/08/25/Nine-Patch-Generator/</loc>
     
     <lastmod>2023-09-05</lastmod>
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://sprheany.github.io/2023/08/25/hello-world/</loc>
+    <loc>https://sprheany.github.io/categories/index.html</loc>
     
     <lastmod>2023-09-05</lastmod>
     
@@ -61,6 +70,13 @@
   </url>
   
   <url>
+    <loc>https://sprheany.github.io/tags/Other/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sprheany.github.io/tags/Web/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -74,13 +90,41 @@
     <priority>0.2</priority>
   </url>
   
+
+  
   <url>
-    <loc>https://sprheany.github.io/tags/Other/</loc>
+    <loc>https://sprheany.github.io/categories/Android/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
-
+  <url>
+    <loc>https://sprheany.github.io/categories/Other/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sprheany.github.io/categories/Flutter/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sprheany.github.io/categories/Android/Network/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sprheany.github.io/categories/Flutter/Web/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>

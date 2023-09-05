@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"sprheany.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sprheany.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Sprheany&#39;s blog.">
 <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://sprheany.github.io/index.html">
 <meta property="og:site_name" content="Sprheany">
 <meta property="og:description" content="Sprheany&#39;s blog.">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Sprheany">
 <meta property="article:tag" content="sprheany">
 <meta property="article:tag" content="android">
@@ -41,7 +41,7 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Sprheany</title>
@@ -74,7 +74,7 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -92,7 +92,8 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -100,12 +101,38 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">3</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </header>
         
@@ -115,10 +142,10 @@
     <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -140,13 +167,18 @@
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
           <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">tags</span></a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -206,10 +238,23 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="Created: 2023-09-05 10:19:14 / Modified: 11:24:13" itemprop="dateCreated datePublished" datetime="2023-09-05T10:19:14+08:00">2023-09-05</time>
+      <time title="创建时间：2023-09-05 10:19:14 / 修改时间：14:53:33" itemprop="dateCreated datePublished" datetime="2023-09-05T10:19:14+08:00">2023-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+        </span>
     </span>
 
   
@@ -233,8 +278,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16d</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:167</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16c</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16b</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:169</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:168</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16a</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16f</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:166</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16e</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.184</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.179</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.188</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.187</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.185</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.182</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.181</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.180</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.183</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.186</span><br></pre></td></tr></table></figure>
 
 <p>可以看到前面 10 个是 IPv6 地址，OkHttp 按顺序一个个解析，IPv6 的都解析超时了，所有请求时间刚好是 connectTimeout 的 10 倍再多一点。</p>
-<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>我们修改 Dns 的实现为下面的代码，将 IPv4 地址移到前面，最后测试问题解决。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> client = OkHttpClient.Builder()</span><br><span class="line">    .dns(ApiDns())</span><br><span class="line">    .build()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ApiDns</span> : <span class="type">Dns</span> &#123;</span><br><span class="line">    <span class="meta">@Throws(UnknownHostException::class)</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">lookup</span><span class="params">(hostname: <span class="type">String</span>)</span></span>: List&lt;InetAddress&gt; &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">val</span> mInetAddressesList: MutableList&lt;InetAddress&gt; = ArrayList()</span><br><span class="line">            <span class="keyword">val</span> mInetAddresses = InetAddress.getAllByName(hostname)</span><br><span class="line">            <span class="keyword">for</span> (address <span class="keyword">in</span> mInetAddresses) &#123;</span><br><span class="line">                <span class="keyword">if</span> (address <span class="keyword">is</span> Inet4Address) &#123;</span><br><span class="line">                    mInetAddressesList.add(<span class="number">0</span>, address)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    mInetAddressesList.add(address)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mInetAddressesList</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: NullPointerException) &#123;</span><br><span class="line">            <span class="keyword">throw</span> UnknownHostException(<span class="string">&quot;Broken system behaviour for dns lookup of <span class="variable">$hostname</span>&quot;</span>).apply &#123;</span><br><span class="line">                initCause(e)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>我们修改 Dns 的实现为下面的代码，优先解析 IPv4 地址，最后测试问题解决。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> client = OkHttpClient.Builder()</span><br><span class="line">    .dns(ApiDns())</span><br><span class="line">    .build()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ApiDns</span> : <span class="type">Dns</span> &#123;</span><br><span class="line">    <span class="meta">@Throws(UnknownHostException::class)</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">lookup</span><span class="params">(hostname: <span class="type">String</span>)</span></span>: List&lt;InetAddress&gt; &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// IPv4 first</span></span><br><span class="line">            <span class="keyword">return</span> InetAddress.getAllByName(hostname).sortedBy &#123;</span><br><span class="line">                Inet6Address::<span class="keyword">class</span>.java.isInstance(it)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: NullPointerException) &#123;</span><br><span class="line">            <span class="keyword">throw</span> UnknownHostException(<span class="string">&quot;Broken system behaviour for dns lookup of <span class="variable">$hostname</span>&quot;</span>).apply &#123;</span><br><span class="line">                initCause(e)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/square/okhttp/issues/6486">First request takes as long as the connectTimeout</a></li>
+</ul>
 
       
     </div>
@@ -288,16 +337,29 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2023-08-25 13:38:59" itemprop="dateCreated datePublished" datetime="2023-08-25T13:38:59+08:00">2023-08-25</time>
+      <time title="创建时间：2023-08-25 13:38:59" itemprop="dateCreated datePublished" datetime="2023-08-25T13:38:59+08:00">2023-08-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-05 11:24:13" itemprop="dateModified" datetime="2023-09-05T11:24:13+08:00">2023-09-05</time>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-05 14:53:33" itemprop="dateModified" datetime="2023-09-05T14:53:33+08:00">2023-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Flutter/" itemprop="url" rel="index"><span itemprop="name">Flutter</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Flutter/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+        </span>
     </span>
 
   
@@ -365,16 +427,25 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2023-08-25 13:30:59" itemprop="dateCreated datePublished" datetime="2023-08-25T13:30:59+08:00">2023-08-25</time>
+      <time title="创建时间：2023-08-25 13:30:59" itemprop="dateCreated datePublished" datetime="2023-08-25T13:30:59+08:00">2023-08-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-05 11:24:13" itemprop="dateModified" datetime="2023-09-05T11:24:13+08:00">2023-09-05</time>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-05 14:53:33" itemprop="dateModified" datetime="2023-09-05T14:53:33+08:00">2023-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Other/" itemprop="url" rel="index"><span itemprop="name">Other</span></a>
+        </span>
     </span>
 
   
@@ -433,14 +504,14 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Sprheany</span>
   </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
@@ -455,7 +526,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
 
 
 

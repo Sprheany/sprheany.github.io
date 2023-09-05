@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Android OkHttp 首次访问网络慢</title>
+    <url>/2023/09/05/Android-OkHttp-%E9%A6%96%E6%AC%A1%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C%E6%85%A2/</url>
+    <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最近开发了一个 Android 项目，发现第一个接口返回得特别慢，后面的接口就没问题。用浏览器打开链接，访问速度很快，手机连上 Charles 抓包，访问速度也很快。打印 OkHttp 的日志发现第一个接口请求耗时100多秒，后面的接口都只有几十秒，多次实验结果都一样。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">200 OK https://fundgz.1234567.com.cn/js/162605.js (100092ms, unknown-length body)</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>通过查看 OkHttp 源码，发现 OkHttp 默认的连接超时时间是 10 秒。修改 connectTimeout 的值后测试，果然第一个接口返回的时间都是 connectTimeout 的 10 倍。</p>
+<p>经过排查后发现是 Dns 的问题。OkHttp 中默认的 Dns 配置代码如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Dns</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Throws(UnknownHostException::class)</span></span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">lookup</span><span class="params">(hostname: <span class="type">String</span>)</span></span>: List&lt;InetAddress&gt;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@JvmField</span></span><br><span class="line">    <span class="keyword">val</span> SYSTEM: Dns = DnsSystem()</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">DnsSystem</span> : <span class="type">Dns</span> &#123;</span><br><span class="line">      <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">lookup</span><span class="params">(hostname: <span class="type">String</span>)</span></span>: List&lt;InetAddress&gt; &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> InetAddress.getAllByName(hostname).toList()</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: NullPointerException) &#123;</span><br><span class="line">          <span class="keyword">throw</span> UnknownHostException(<span class="string">&quot;Broken system behaviour for dns lookup of <span class="variable">$hostname</span>&quot;</span>).apply &#123;</span><br><span class="line">            initCause(e)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加上日志打印出获取到的 IP 地址如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16d</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:167</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16c</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16b</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:169</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:168</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16a</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16f</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:166</span><br><span class="line">fundgz.1234567.com.cn/2409:8c60:2600:2:0:1:0:16e</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.184</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.179</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.188</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.187</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.185</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.182</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.181</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.180</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.183</span><br><span class="line">fundgz.1234567.com.cn/221.178.98.186</span><br></pre></td></tr></table></figure>
+
+<p>可以看到前面 10 个是 IPv6 地址，OkHttp 按顺序一个个解析，IPv6 的都解析超时了，所有请求时间刚好是 connectTimeout 的 10 倍再多一点。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>我们修改 Dns 的实现为下面的代码，优先解析 IPv4 地址，最后测试问题解决。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> client = OkHttpClient.Builder()</span><br><span class="line">    .dns(ApiDns())</span><br><span class="line">    .build()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ApiDns</span> : <span class="type">Dns</span> &#123;</span><br><span class="line">    <span class="meta">@Throws(UnknownHostException::class)</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">lookup</span><span class="params">(hostname: <span class="type">String</span>)</span></span>: List&lt;InetAddress&gt; &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// IPv4 first</span></span><br><span class="line">            <span class="keyword">return</span> InetAddress.getAllByName(hostname).sortedBy &#123;</span><br><span class="line">                Inet6Address::<span class="keyword">class</span>.java.isInstance(it)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: NullPointerException) &#123;</span><br><span class="line">            <span class="keyword">throw</span> UnknownHostException(<span class="string">&quot;Broken system behaviour for dns lookup of <span class="variable">$hostname</span>&quot;</span>).apply &#123;</span><br><span class="line">                initCause(e)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://github.com/square/okhttp/issues/6486">First request takes as long as the connectTimeout</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Android</category>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/08/25/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+      <tags>
+        <tag>Other</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nine Patch Generator</title>
+    <url>/2023/08/25/Nine-Patch-Generator/</url>
+    <content><![CDATA[<p>The Nine Patch Generator is an online WYSIWYG tool similar to the one included in Android Studio. The tool lets you create bitmap images that automatically resize to accommodate the contents of the view and the size of the screen. You can scale selected parts of the image horizontally or vertically based on indicators drawn within the image.</p>
+<p>Link: <a href="https://www.9patch.online/">https://www.9patch.online</a></p>
+]]></content>
+      <categories>
+        <category>Flutter</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+</search>
