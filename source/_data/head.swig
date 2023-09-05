@@ -7,3 +7,9 @@
 
   gtag('config', 'G-HCSG7GBQ4R');
 </script>
+
+<!-- Vercel analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
